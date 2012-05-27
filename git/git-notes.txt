@@ -1,0 +1,65 @@
+1) Setting Up GitHub
+  Need to ensure that you have your dev machine's public ssh key added to your ssh keys online on github accessed via: Account Settings --> SSH Keys
+
+  To generates a new key:
+	cd ~/.ssh
+	ssh-keygen -t rsa -C "fahadbuddy@gmail.com"
+
+  Should produce two files id_rsa, id_rsa.pub
+  id_rsa.pub contains the public key. Upload it to the github server.
+
+For more info: http://help.github.com/linux-set-up-git/
+
+2) Git First Time Setup
+
+  Need to configure these:
+
+  git config --global "Fahad Sheikh"
+  git config --global "fahadbuddy@gmail.com"
+  git config --global core.editor vim
+  git config --global merge.tool vimdiff
+
+note --global ==> ~/.gitconfig
+
+can check git config values by running:
+  git config --list
+
+3) Git Common Commands
+
+  git init --> initialises an empty git repository
+  git add --> tracks/stages file in the staging area
+  git commit --> commits files in staging area
+  git commit -m 'commit message' --> inline commit
+  git commit -a -m 'commit --> to commit modified tracked files directly
+  git clone git@github.com:fahadbuddy/asian-touch-wedding.git (R/W)
+  git clone git://github.com/fahadbuddy/asian-touch-wedding.git (RO)
+  
+  git status --> To Check File Status  
+
+  File Status:
+
+  Untracked --> UnModified --> Modified --> Staged --> Unmodified
+          git add --> file edit -->  git add --> git commit
+
+
+  git diff --> To see diffs between staging area and working area (modified)
+
+  git diff --cached --> diffs between commited and staged
+
+ 
+4) Git Remove
+
+  git rm --> to remove a file from staging area
+
+  File Status:
+
+  File ---> File Deleted (DISK) --> File Deleted (Local Repo)
+      rm File --> git rm File --> git commit 
+
+  To Keep File in the DISK but remove it from the Repo (e.g. accidental commit of log files/ properties files etc..) you can use:
+
+  git rm --cached
+
+  git mv README README.md --> Convenience command in git to rename files
+
+
